@@ -1,0 +1,19 @@
+<!-- app/views/todos/index.html.erb -->
+<div class="container mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-6">Collaborative Todos</h1>
+  <p class="text-gray-600 mb-4">You are: <strong><%= @user_name %></strong></p>
+  
+  <%= form_with model: @todo, local: true, class: "mb-6 flex gap-2" do |form| %>
+    <%= form.text_field :title, placeholder: "What needs to be done?", 
+        class: "flex-1 px-4 py-2 border rounded-lg", 
+        autofocus: true %>
+    <%= form.submit "Add Todo", class: "px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
+  <% end %>
+  
+  <!-- This line connects to the real-time stream -->
+  <%= turbo_stream_from "todos" %>
+  
+  <div id="todos" class="space-y-2">
+    <%= render partial: "todo", collection: @todos %>
+  </div>
+</div>

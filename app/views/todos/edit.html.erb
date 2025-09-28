@@ -1,0 +1,24 @@
+<!-- app/views/todos/edit.html.erb -->
+<div class="container mx-auto p-6">
+  <h1 class="text-2xl font-bold mb-6">Edit Todo</h1>
+  
+  <%= turbo_frame_tag dom_id(@todo) do %>
+    <%= form_with model: @todo, local: true, class: "space-y-4" do |form| %>
+      <div>
+        <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_field :title, 
+            class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" %>
+        <% if @todo.errors[:title].any? %>
+          <p class="mt-1 text-sm text-red-600"><%= @todo.errors[:title].first %></p>
+        <% end %>
+      </div>
+      
+      <div class="flex gap-2">
+        <%= form.submit "Update Todo", 
+            class: "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+        <%= link_to "Cancel", todos_path, 
+            class: "px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
