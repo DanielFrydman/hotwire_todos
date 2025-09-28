@@ -53,7 +53,7 @@ after_destroy_commit { broadcast_remove_to "todos" }
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone git@github.com:DanielFrydman/hotwire_todos.git # or https://github.com/DanielFrydman/hotwire_todos.git
    cd hotwire_todos
    ```
 
