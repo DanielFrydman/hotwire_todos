@@ -1,6 +1,6 @@
 # app/controllers/todos_controller.rb
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:edit, :update, :destroy, :toggle]
+  before_action :set_todo, only: [ :edit, :update, :destroy, :toggle ]
   before_action :set_user_name
 
   def index
@@ -12,7 +12,7 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params.merge(user_name: @user_name))
 
     if @todo.save
-      redirect_to todos_path, notice: 'Todo created!'
+      redirect_to todos_path, notice: "Todo created!"
     else
       @todos = Todo.order(created_at: :desc)
       render :index, status: :unprocessable_entity
