@@ -141,21 +141,6 @@ This application showcases several Hotwire features:
 - Broadcast channels handle real-time communication
 - Users see changes from other users instantly
 
-## 🚀 Deployment
-
-This application is configured for deployment with Kamal:
-
-```bash
-# Deploy to production
-kamal deploy
-```
-
-The application includes:
-- Docker configuration
-- Production-ready database setup
-- Asset compilation
-- Background job processing
-
 ## 🙏 Acknowledgments
 
 - Built with [Ruby on Rails](https://rubyonrails.org/)
